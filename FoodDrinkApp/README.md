@@ -35,13 +35,13 @@
 Windows 构建命令：
 
 ```powershell
-dotnet build .\FoodDrinkApp.csproj -f net9.0-windows10.0.19041.0
+dotnet build .\FoodDrinkApp.csproj -f net8.0-windows10.0.19041.0
 ```
 
 Android 构建命令：
 
 ```powershell
-dotnet build .\FoodDrinkApp.csproj -f net9.0-android
+dotnet build .\FoodDrinkApp.csproj -f net8.0-android
 ```
 
 本项目通过 `Directory.Build.props` 将构建输出放到 `C:\MauiBuild\NutriTrack\`，用于规避 Android 打包工具在中文路径下的 `assets` 路径问题。

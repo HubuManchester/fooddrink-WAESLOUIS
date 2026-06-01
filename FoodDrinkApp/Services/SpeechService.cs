@@ -25,8 +25,6 @@ public static class SpeechService
         }
     }
 
-    public static Task SpeakChineseAsync(string text) => SpeakAsync(text);
-
     public static void Stop()
     {
         if (currentSpeech is null)
