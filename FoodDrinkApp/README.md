@@ -44,7 +44,9 @@ Android 构建命令：
 dotnet build .\FoodDrinkApp.csproj -f net8.0-android
 ```
 
-本项目通过 `Directory.Build.props` 将构建输出放到 `C:\MauiBuild\NutriTrack\`，用于规避 Android 打包工具在中文路径下的 `assets` 路径问题。
+本项目通过 `Directory.Build.props` 将构建输出放到 `C:\MauiBuild\FoodDrinkApp\`，用于规避 Android 打包工具在中文路径下的 `assets` 路径问题。
+
+项目通过 `global.json` 锁定 .NET SDK 版本为 8.0.421，确保构建环境一致。
 
 ## 录屏演示清单
 
