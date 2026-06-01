@@ -125,6 +125,78 @@ public static class FoodCatalogService
             Fat = 2,
             AllergyNote = "No common allergens recorded.",
             Tags = "drink smoothie tropical vegan"
+        },
+        new()
+        {
+            Name = "Kung Pao Chicken (宫保鸡丁)",
+            Category = "Lunch",
+            Description = "Diced chicken with peanuts, dried chillies, and Sichuan peppercorns in a savoury sauce.",
+            Calories = 480,
+            Protein = 35,
+            Carbs = 28,
+            Fat = 22,
+            AllergyNote = "Contains peanuts and soy.",
+            Tags = "Chinese Sichuan chicken spicy lunch"
+        },
+        new()
+        {
+            Name = "Xiaolongbao (小笼包)",
+            Category = "Snack",
+            Description = "Steamed soup dumplings filled with minced pork and a savoury broth.",
+            Calories = 360,
+            Protein = 16,
+            Carbs = 42,
+            Fat = 14,
+            AllergyNote = "Contains gluten and pork.",
+            Tags = "Chinese dumpling dim sum snack"
+        },
+        new()
+        {
+            Name = "Bubble Milk Tea (珍珠奶茶)",
+            Category = "Drink",
+            Description = "Classic Taiwanese milk tea with chewy tapioca pearls.",
+            Calories = 320,
+            Protein = 4,
+            Carbs = 56,
+            Fat = 8,
+            AllergyNote = "Contains dairy. Tapioca pearls may pose a choking risk for young children.",
+            Tags = "drink bubble tea taiwanese boba"
+        },
+        new()
+        {
+            Name = "Malatang (麻辣烫)",
+            Category = "Dinner",
+            Description = "Spicy Sichuan-style hot pot with assorted vegetables, tofu, and meat in a numbing broth.",
+            Calories = 550,
+            Protein = 28,
+            Carbs = 45,
+            Fat = 26,
+            AllergyNote = "May contain soy, sesame, and peanut. Ask about broth ingredients.",
+            Tags = "Chinese Sichuan spicy hotpot dinner"
+        },
+        new()
+        {
+            Name = "Egg Fried Rice (蛋炒饭)",
+            Category = "Lunch",
+            Description = "Classic home-style fried rice with egg, spring onion, and a touch of sesame oil.",
+            Calories = 420,
+            Protein = 14,
+            Carbs = 58,
+            Fat = 14,
+            AllergyNote = "Contains eggs and soy. Gluten-free when made with tamari.",
+            Tags = "Chinese rice egg lunch fried"
+        },
+        new()
+        {
+            Name = "Douhua (豆花)",
+            Category = "Snack",
+            Description = "Silky soft tofu pudding served with a light ginger syrup or savoury soy dressing.",
+            Calories = 180,
+            Protein = 10,
+            Carbs = 24,
+            Fat = 5,
+            AllergyNote = "Contains soy.",
+            Tags = "Chinese tofu dessert snack sweet"
         }
     ];
 
