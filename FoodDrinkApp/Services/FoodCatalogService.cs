@@ -32,6 +32,18 @@ public static class FoodCatalogService
         },
         new()
         {
+            Name = "Avocado Toast with Eggs",
+            Category = "Breakfast",
+            Description = "Sourdough toast topped with smashed avocado, poached eggs, and chilli flakes.",
+            Calories = 420,
+            Protein = 20,
+            Carbs = 38,
+            Fat = 22,
+            AllergyNote = "Contains eggs and gluten.",
+            Tags = "breakfast avocado eggs toast"
+        },
+        new()
+        {
             Name = "Chicken Brown Rice Box",
             Category = "Lunch",
             Description = "Grilled chicken breast with brown rice, spinach, cucumber, and lemon dressing.",
@@ -41,6 +53,54 @@ public static class FoodCatalogService
             Fat = 14,
             AllergyNote = "No common allergens recorded.",
             Tags = "meal prep protein lunch"
+        },
+        new()
+        {
+            Name = "Mediterranean Falafel Wrap",
+            Category = "Lunch",
+            Description = "Falafel, hummus, pickled vegetables, and tahini in a wholewheat wrap.",
+            Calories = 480,
+            Protein = 16,
+            Carbs = 56,
+            Fat = 20,
+            AllergyNote = "Contains sesame and gluten.",
+            Tags = "vegetarian lunch falafel wrap"
+        },
+        new()
+        {
+            Name = "Trail Mix Energy Bites",
+            Category = "Snack",
+            Description = "No-bake bites made with oats, peanut butter, dark chocolate chips, and flaxseed.",
+            Calories = 220,
+            Protein = 8,
+            Carbs = 26,
+            Fat = 10,
+            AllergyNote = "Contains peanuts and gluten.",
+            Tags = "snack energy healthy trail mix"
+        },
+        new()
+        {
+            Name = "Grilled Salmon with Vegetables",
+            Category = "Dinner",
+            Description = "Atlantic salmon fillet with roasted asparagus, baby potatoes, and dill sauce.",
+            Calories = 550,
+            Protein = 42,
+            Carbs = 34,
+            Fat = 24,
+            AllergyNote = "Contains fish.",
+            Tags = "dinner seafood salmon protein"
+        },
+        new()
+        {
+            Name = "Tomato Wholegrain Pasta",
+            Category = "Dinner",
+            Description = "Wholegrain pasta with tomato sauce, basil, and roasted vegetables.",
+            Calories = 610,
+            Protein = 18,
+            Carbs = 92,
+            Fat = 16,
+            AllergyNote = "Contains gluten.",
+            Tags = "vegetarian dinner pasta"
         },
         new()
         {
@@ -56,15 +116,15 @@ public static class FoodCatalogService
         },
         new()
         {
-            Name = "Tomato Wholegrain Pasta",
-            Category = "Dinner",
-            Description = "Wholegrain pasta with tomato sauce, basil, and roasted vegetables.",
-            Calories = 610,
-            Protein = 18,
-            Carbs = 92,
-            Fat = 16,
-            AllergyNote = "Contains gluten.",
-            Tags = "vegetarian dinner pasta"
+            Name = "Mango Passion Fruit Smoothie",
+            Category = "Drink",
+            Description = "Fresh mango, passion fruit, banana, and coconut water blended with ice.",
+            Calories = 210,
+            Protein = 4,
+            Carbs = 48,
+            Fat = 2,
+            AllergyNote = "No common allergens recorded.",
+            Tags = "drink smoothie tropical vegan"
         }
     ];
 

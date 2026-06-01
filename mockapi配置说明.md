@@ -48,29 +48,43 @@ foods
 
 ```json
 {
-  "name": "莓果酸奶碗",
-  "category": "早餐",
-  "description": "希腊酸奶搭配混合莓果、燕麦和少量蜂蜜。",
+  "name": "Berry Yogurt Bowl",
+  "category": "Breakfast",
+  "description": "Greek yogurt with mixed berries, oats, and a small drizzle of honey.",
   "calories": 340,
   "protein": 24,
   "carbs": 42,
   "fat": 8,
-  "allergyNote": "含乳制品和麸质。",
-  "tags": "健康 早餐 酸奶 莓果"
+  "allergyNote": "Contains dairy and gluten.",
+  "tags": "healthy breakfast yogurt berries"
 }
 ```
 
 ```json
 {
-  "name": "鸡胸糙米餐盒",
-  "category": "午餐",
-  "description": "烤鸡胸、糙米、菠菜、黄瓜和柠檬调味汁。",
+  "name": "Chicken Brown Rice Box",
+  "category": "Lunch",
+  "description": "Grilled chicken breast with brown rice, spinach, cucumber, and lemon dressing.",
   "calories": 520,
   "protein": 38,
   "carbs": 58,
   "fat": 14,
-  "allergyNote": "未记录常见过敏原。",
-  "tags": "备餐 蛋白质 午餐"
+  "allergyNote": "No common allergens recorded.",
+  "tags": "meal prep protein lunch"
+}
+```
+
+```json
+{
+  "name": "Iced Matcha Latte",
+  "category": "Drink",
+  "description": "Matcha, milk, and ice. A lower-sugar version is recommended.",
+  "calories": 180,
+  "protein": 8,
+  "carbs": 22,
+  "fat": 6,
+  "allergyNote": "Contains dairy unless plant-based milk is selected.",
+  "tags": "drink caffeine matcha latte"
 }
 ```
 
