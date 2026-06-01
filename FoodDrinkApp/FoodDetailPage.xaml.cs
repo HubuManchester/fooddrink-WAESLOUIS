@@ -7,16 +7,23 @@ namespace FoodDrinkApp;
 public partial class FoodDetailPage : ContentPage
 {
     private FoodItem? currentItem;
+    private string? pendingItemId;
 
     public FoodDetailPage()
     {
         InitializeComponent();
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
         AccessibilityService.ApplyFontScale(this);
+
+        if (pendingItemId is not null)
+        {
+            await LoadItemAsync(pendingItemId);
+            pendingItemId = null;
+        }
     }
 
     protected override void OnDisappearing()
@@ -27,7 +34,7 @@ public partial class FoodDetailPage : ContentPage
 
     public string ItemId
     {
-        set => _ = LoadItemAsync(value);
+        set => pendingItemId = value;
     }
 
     private async Task LoadItemAsync(string id)
