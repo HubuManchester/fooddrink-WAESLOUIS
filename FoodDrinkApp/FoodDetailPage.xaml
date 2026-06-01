@@ -6,8 +6,8 @@
     <ScrollView>
         <ScrollView.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="{AppThemeBinding Light=#FFF1DA, Dark=#130F0C}" Offset="0.0" />
-                <GradientStop Color="{AppThemeBinding Light=#FFF9EF, Dark=#0F1711}" Offset="1.0" />
+                <GradientStop Color="{AppThemeBinding Light=#E8F4F8, Dark=#0A1628}" Offset="0.0" />
+                <GradientStop Color="{AppThemeBinding Light=#F0F7FA, Dark=#0D1B2A}" Offset="1.0" />
             </LinearGradientBrush>
         </ScrollView.Background>
         <VerticalStackLayout Padding="22" Spacing="16">
@@ -17,9 +17,9 @@
                 </Border.StrokeShape>
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="{AppThemeBinding Light=#D9472B, Dark=#5B2017}" Offset="0.0" />
-                        <GradientStop Color="{AppThemeBinding Light=#F29B38, Dark=#9B4A19}" Offset="0.72" />
-                        <GradientStop Color="{AppThemeBinding Light=#2F7A4F, Dark=#1D5D3A}" Offset="1.0" />
+                        <GradientStop Color="{AppThemeBinding Light=#2E86AB, Dark=#1A3A4A}" Offset="0.0" />
+                        <GradientStop Color="{AppThemeBinding Light=#45B7D1, Dark=#1A4A5A}" Offset="0.72" />
+                        <GradientStop Color="{AppThemeBinding Light=#56C596, Dark=#1A4A40}" Offset="1.0" />
                     </LinearGradientBrush>
                 </Border.Background>
                 <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="8">
@@ -31,49 +31,49 @@
                     <Label x:Name="CategoryLabel"
                            Grid.Row="1"
                            FontSize="15"
-                           TextColor="#FFF5E8" />
+                           TextColor="#E8F4F8" />
                     <Label x:Name="CaloriesLabel"
                            Grid.Row="2"
                            FontSize="24"
                            FontAttributes="Bold"
-                           TextColor="#FFF0C9" />
+                           TextColor="#E0F0FA" />
                 </Grid>
             </Border>
 
             <Border StrokeThickness="1"
-                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
-                    BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
+                    Stroke="{AppThemeBinding Light=#D0E4EE, Dark=#2A4055}"
+                    BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#162535}"
                     Padding="16">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="8" />
                 </Border.StrokeShape>
                 <VerticalStackLayout Spacing="12">
-                    <Label Text="Nutrition overview" FontSize="16" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#D9472B, Dark=#FF9C7B}" />
-                    <Label x:Name="MacroLabel" FontSize="16" TextColor="{AppThemeBinding Light=#2F7A4F, Dark=#8CE6A1}" />
-                    <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}" />
-                    <Label x:Name="DescriptionLabel" FontSize="15" TextColor="{AppThemeBinding Light=#6E5A47, Dark=#D8C4AC}" />
-                    <Label x:Name="AllergyLabel" FontSize="15" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#A95517, Dark=#FFD18E}" />
+                    <Label Text="Nutrition overview" FontSize="16" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#2E86AB, Dark=#5BC0EB}" />
+                    <Label x:Name="MacroLabel" FontSize="16" TextColor="{AppThemeBinding Light=#56C596, Dark=#56C596}" />
+                    <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#D0E4EE, Dark=#2A4055}" />
+                    <Label x:Name="DescriptionLabel" FontSize="15" TextColor="{AppThemeBinding Light=#5B7288, Dark=#8BA4BE}" />
+                    <Label x:Name="AllergyLabel" FontSize="15" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#2E86AB, Dark=#5BC0EB}" />
                 </VerticalStackLayout>
             </Border>
 
             <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
                 <Button Text="Read summary"
-                        BackgroundColor="#D9472B"
+                        BackgroundColor="#2E86AB"
                         TextColor="#FFFFFF"
                         Clicked="OnSpeakClicked"
                         SemanticProperties.Hint="Read the nutrition summary aloud" />
                 <Button Grid.Column="1"
                         Text="Stop reading"
-                        BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
-                        BorderColor="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                        BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#162535}"
+                        BorderColor="{AppThemeBinding Light=#D0E4EE, Dark=#2A4055}"
                         BorderWidth="1"
-                        TextColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
+                        TextColor="{AppThemeBinding Light=#2E86AB, Dark=#5BC0EB}"
                         Clicked="OnStopSpeechClicked"
                         SemanticProperties.Hint="Stop the current speech" />
             </Grid>
 
             <Button Text="Vibration reminder"
-                    BackgroundColor="#2F7A4F"
+                    BackgroundColor="#56C596"
                     TextColor="#FFFFFF"
                     Clicked="OnVibrateClicked"
                     SemanticProperties.Hint="Use mobile vibration as a meal reminder" />
