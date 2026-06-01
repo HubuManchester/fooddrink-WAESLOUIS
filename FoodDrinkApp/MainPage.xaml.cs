@@ -20,7 +20,26 @@ public partial class MainPage : ContentPage
 
     private async Task LoadFoodItemsAsync(string? query = null)
     {
-        FoodCollection.ItemsSource = await FoodCatalogService.SearchAsync(query);
+        var items = await FoodCatalogService.SearchAsync(query);
+        FoodCollection.ItemsSource = items;
+        UpdateDashboard(items);
+    }
+
+    private void UpdateDashboard(IReadOnlyList<Models.FoodItem> items)
+    {
+        int totalCal = 0, totalProtein = 0, totalCarbs = 0, totalFat = 0;
+        foreach (var item in items)
+        {
+            totalCal += item.Calories;
+            totalProtein += item.Protein;
+            totalCarbs += item.Carbs;
+            totalFat += item.Fat;
+        }
+
+        DashCalories.Text = totalCal.ToString("N0");
+        DashProtein.Text = totalProtein.ToString("N0");
+        DashCarbs.Text = totalCarbs.ToString("N0");
+        DashFat.Text = totalFat.ToString("N0");
     }
 
     private async void OnAddClicked(object? sender, EventArgs e)
