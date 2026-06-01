@@ -4,6 +4,8 @@ namespace FoodDrinkApp;
 
 public partial class MainPage : ContentPage
 {
+    private CancellationTokenSource? searchDebounce;
+
     public MainPage()
     {
         InitializeComponent();
@@ -34,13 +36,32 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private async void OnSearchTextChanged(object? sender, TextChangedEventArgs e)
+    private void OnSearchTextChanged(object? sender, TextChangedEventArgs e)
     {
-        await LoadFoodItemsAsync(e.NewTextValue);
+        searchDebounce?.Cancel();
+        searchDebounce = new CancellationTokenSource();
+        var token = searchDebounce.Token;
+
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await Task.Delay(300, token);
+                if (!token.IsCancellationRequested)
+                {
+                    await Dispatcher.DispatchAsync(() => LoadFoodItemsAsync(e.NewTextValue));
+                }
+            }
+            catch (TaskCanceledException)
+            {
+                // Debounce cancelled — expected.
+            }
+        }, token);
     }
 
     private async void OnSearchButtonPressed(object? sender, EventArgs e)
     {
+        searchDebounce?.Cancel();
         await LoadFoodItemsAsync(SearchFoodBar.Text);
     }
 

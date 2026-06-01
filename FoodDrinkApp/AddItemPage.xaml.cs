@@ -40,7 +40,7 @@ public partial class AddItemPage : ContentPage
                 AllergyNote = string.IsNullOrWhiteSpace(AllergyEntry.Text)
                     ? "No allergy note provided."
                     : AllergyEntry.Text.Trim(),
-                Tags = $"{NameEntry.Text} {CategoryPicker.SelectedItem} {DescriptionEditor.Text}"
+                Tags = $"{NameEntry.Text?.Trim()} {CategoryPicker.SelectedItem}"
             };
 
             await FoodCatalogService.AddAsync(item);
