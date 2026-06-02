@@ -1,5 +1,5 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/uM_GSLJS)
-# Food-Drink — NutriBite (食光营养助手)
+# Food-Drink — NutriBite
 
 Final assignment — a .NET MAUI cross-platform mobile app for tracking food and drink nutrition.
 
@@ -29,4 +29,4 @@ dotnet build .\FoodDrinkApp\FoodDrinkApp.csproj -f net8.0-windows10.0.19041.0
 dotnet build .\FoodDrinkApp\FoodDrinkApp.csproj -f net8.0-android
 ```
 
-See `项目开发指南.md` (Chinese) or `FoodDrinkApp/README.md` for detailed documentation.
+See `PROJECT_GUIDE.md` or `FoodDrinkApp/README.md` for detailed documentation.

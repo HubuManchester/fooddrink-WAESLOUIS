@@ -128,7 +128,7 @@ public static class FoodCatalogService
         },
         new()
         {
-            Name = "Kung Pao Chicken (宫保鸡丁)",
+            Name = "Kung Pao Chicken",
             Category = "Lunch",
             Description = "Diced chicken with peanuts, dried chillies, and Sichuan peppercorns in a savoury sauce.",
             Calories = 480,
@@ -140,7 +140,7 @@ public static class FoodCatalogService
         },
         new()
         {
-            Name = "Xiaolongbao (小笼包)",
+            Name = "Xiaolongbao (Soup Dumplings)",
             Category = "Snack",
             Description = "Steamed soup dumplings filled with minced pork and a savoury broth.",
             Calories = 360,
@@ -152,7 +152,7 @@ public static class FoodCatalogService
         },
         new()
         {
-            Name = "Bubble Milk Tea (珍珠奶茶)",
+            Name = "Bubble Milk Tea",
             Category = "Drink",
             Description = "Classic Taiwanese milk tea with chewy tapioca pearls.",
             Calories = 320,
@@ -164,7 +164,7 @@ public static class FoodCatalogService
         },
         new()
         {
-            Name = "Malatang (麻辣烫)",
+            Name = "Malatang (Spicy Hot Pot)",
             Category = "Dinner",
             Description = "Spicy Sichuan-style hot pot with assorted vegetables, tofu, and meat in a numbing broth.",
             Calories = 550,
@@ -176,7 +176,7 @@ public static class FoodCatalogService
         },
         new()
         {
-            Name = "Egg Fried Rice (蛋炒饭)",
+            Name = "Egg Fried Rice",
             Category = "Lunch",
             Description = "Classic home-style fried rice with egg, spring onion, and a touch of sesame oil.",
             Calories = 420,
@@ -188,7 +188,7 @@ public static class FoodCatalogService
         },
         new()
         {
-            Name = "Douhua (豆花)",
+            Name = "Douhua (Tofu Pudding)",
             Category = "Snack",
             Description = "Silky soft tofu pudding served with a light ginger syrup or savoury soy dressing.",
             Calories = 180,
