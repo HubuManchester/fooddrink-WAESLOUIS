@@ -29,14 +29,14 @@ public partial class HardwarePage : ContentPage
         {
             if (!MediaPicker.Default.IsCaptureSupported)
             {
-                SetStatus("This device does not support camera capture.");
+                ShowFallback("Camera not supported on this device.");
                 return;
             }
 
             var photo = await MediaPicker.Default.CapturePhotoAsync();
             if (photo is null)
             {
-                SetStatus("Photo capture cancelled.");
+                ShowFallback("Photo capture was cancelled.");
                 return;
             }
 
@@ -45,17 +45,27 @@ public partial class HardwarePage : ContentPage
             await stream.CopyToAsync(memoryStream);
             var imageBytes = memoryStream.ToArray();
             FoodPhoto.Source = ImageSource.FromStream(() => new MemoryStream(imageBytes));
+            FoodPhoto.IsVisible = true;
+            PhotoFallback.IsVisible = false;
             SetStatus("Food photo captured successfully.");
             HapticFeedback.Default.Perform(HapticFeedbackType.Click);
         }
         catch (PermissionException)
         {
-            SetStatus("Camera permission was denied. Enable camera access in device settings.");
+            ShowFallback("Camera permission denied.");
         }
         catch (Exception ex)
         {
-            SetStatus($"Camera error: {ex.Message}");
+            ShowFallback($"Camera unavailable — {ex.Message}");
         }
+    }
+
+    private void ShowFallback(string reason)
+    {
+        FoodPhoto.IsVisible = false;
+        PhotoFallback.IsVisible = true;
+        PhotoStatusLabel.Text = reason;
+        SetStatus($"Photo demo mode — {reason}");
     }
 
     private async void OnGetLocationClicked(object? sender, EventArgs e)

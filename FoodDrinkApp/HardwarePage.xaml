@@ -54,9 +54,28 @@
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="8" />
                         </Border.StrokeShape>
-                        <Image x:Name="FoodPhoto"
-                               Aspect="AspectFill"
-                               SemanticProperties.Description="Captured food photo preview" />
+                        <Grid>
+                            <Image x:Name="FoodPhoto"
+                                   Aspect="AspectFill"
+                                   IsVisible="False"
+                                   SemanticProperties.Description="Captured food photo preview" />
+                            <VerticalStackLayout x:Name="PhotoFallback"
+                                                 HorizontalOptions="Center"
+                                                 VerticalOptions="Center"
+                                                 Spacing="8">
+                                <Label Text="🍽️"
+                                       FontSize="48"
+                                       HorizontalTextAlignment="Center" />
+                                <Label Text="Tap Photo to capture"
+                                       FontSize="15"
+                                       TextColor="{AppThemeBinding Light=#8BA4BE, Dark=#5B7288}"
+                                       HorizontalTextAlignment="Center" />
+                                <Label x:Name="PhotoStatusLabel"
+                                       FontSize="12"
+                                       TextColor="{AppThemeBinding Light=#8BA4BE, Dark=#5B7288}"
+                                       HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                        </Grid>
                     </Border>
                 </VerticalStackLayout>
             </Border>
