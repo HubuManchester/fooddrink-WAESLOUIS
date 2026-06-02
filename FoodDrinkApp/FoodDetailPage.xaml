@@ -11,6 +11,11 @@
             </LinearGradientBrush>
         </ScrollView.Background>
         <VerticalStackLayout Padding="22" Spacing="16">
+            <ActivityIndicator x:Name="LoadingIndicator"
+                               IsRunning="False"
+                               IsVisible="False"
+                               Color="{AppThemeBinding Light=#2E86AB, Dark=#5BC0EB}"
+                               HorizontalOptions="Center" />
             <Border StrokeThickness="0" Padding="18">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="8" />

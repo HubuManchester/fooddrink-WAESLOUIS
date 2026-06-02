@@ -39,9 +39,18 @@ public partial class FoodDetailPage : ContentPage
 
     private async Task LoadItemAsync(string id)
     {
-        currentItem = await FoodCatalogService.GetByIdAsync(id);
-        BindingContext = currentItem;
-        RenderItem();
+        LoadingIndicator.IsRunning = true;
+        LoadingIndicator.IsVisible = true;
+        try
+        {
+            currentItem = await FoodCatalogService.GetByIdAsync(id);
+            RenderItem();
+        }
+        finally
+        {
+            LoadingIndicator.IsRunning = false;
+            LoadingIndicator.IsVisible = false;
+        }
     }
 
     private void RenderItem()

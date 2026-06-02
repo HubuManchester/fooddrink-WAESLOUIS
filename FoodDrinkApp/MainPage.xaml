@@ -5,7 +5,7 @@
              x:Class="FoodDrinkApp.MainPage"
              Title="NutriBite">
 
-    <Grid RowDefinitions="Auto,Auto,*">
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="{AppThemeBinding Light=#E8F4F8, Dark=#0A1628}" Offset="0.0" />
@@ -174,15 +174,41 @@
             </Grid>
         </Border>
 
+        <!-- Loading Indicator -->
+        <HorizontalStackLayout Grid.Row="2"
+                               x:Name="LoadingBar"
+                               IsVisible="False"
+                               HorizontalOptions="Center"
+                               Padding="8,4"
+                               Spacing="8">
+            <ActivityIndicator IsRunning="True"
+                               Color="{AppThemeBinding Light=#2E86AB, Dark=#5BC0EB}"
+                               HeightRequest="20"
+                               WidthRequest="20" />
+            <Label Text="Loading food data..."
+                   FontSize="13"
+                   TextColor="{AppThemeBinding Light=#5B7288, Dark=#8BA4BE}"
+                   VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
         <!-- Food List -->
-        <RefreshView Grid.Row="2" x:Name="FoodRefreshView" Refreshing="OnRefreshing">
+        <RefreshView Grid.Row="3" x:Name="FoodRefreshView" Refreshing="OnRefreshing">
             <CollectionView x:Name="FoodCollection"
                             SelectionMode="None"
-                            EmptyView="No matching food or drink records."
+                            EmptyView="{x:Null}"
                             Margin="16,0,16,18">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:FoodItem">
-                        <Border StrokeThickness="1"
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete"
+                                               BackgroundColor="#FF5252"
+                                               CommandParameter="{Binding Id}"
+                                               Invoked="OnDeleteInvoked" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Border StrokeThickness="1"
                                 Stroke="{AppThemeBinding Light=#D0E4EE, Dark=#2A4055}"
                                 BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#162535}"
                                 Padding="0"
@@ -241,8 +267,30 @@
                                 </Grid>
                             </Grid>
                         </Border>
+                        </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Spacing="12"
+                                         Padding="20">
+                        <Label Text="No matching food or drink records."
+                               FontSize="16"
+                               TextColor="{AppThemeBinding Light=#5B7288, Dark=#8BA4BE}"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="Try a different search term, or add a new entry."
+                               FontSize="13"
+                               TextColor="{AppThemeBinding Light=#8BA4BE, Dark=#5B7288}"
+                               HorizontalTextAlignment="Center" />
+                        <Button Text="Add New Record"
+                                BackgroundColor="#56C596"
+                                TextColor="#FFFFFF"
+                                Clicked="OnAddClicked"
+                                HorizontalOptions="Center"
+                                SemanticProperties.Hint="Add a new food or drink record" />
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
             </CollectionView>
         </RefreshView>
     </Grid>

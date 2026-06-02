@@ -3,6 +3,8 @@ namespace FoodDrinkApp.Services;
 public static class SpeechService
 {
     private static CancellationTokenSource? currentSpeech;
+    private static Locale? cachedEnglishLocale;
+    private static bool localeQueried;
 
     public static async Task SpeakAsync(string text)
     {
@@ -39,7 +41,15 @@ public static class SpeechService
 
     private static async Task<Locale?> FindEnglishLocaleAsync()
     {
+        if (localeQueried)
+        {
+            return cachedEnglishLocale;
+        }
+
         var locales = await TextToSpeech.Default.GetLocalesAsync();
-        return locales.FirstOrDefault(locale => locale.Language.StartsWith("en", StringComparison.OrdinalIgnoreCase));
+        cachedEnglishLocale = locales.FirstOrDefault(
+            locale => locale.Language.StartsWith("en", StringComparison.OrdinalIgnoreCase));
+        localeQueried = true;
+        return cachedEnglishLocale;
     }
 }

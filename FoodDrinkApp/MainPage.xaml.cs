@@ -18,11 +18,25 @@ public partial class MainPage : ContentPage
         await LoadFoodItemsAsync(SearchFoodBar.Text);
     }
 
+    protected override void OnDisappearing()
+    {
+        searchDebounce?.Cancel();
+        base.OnDisappearing();
+    }
+
     private async Task LoadFoodItemsAsync(string? query = null)
     {
-        var items = await FoodCatalogService.SearchAsync(query);
-        FoodCollection.ItemsSource = items;
-        UpdateDashboard(items);
+        LoadingBar.IsVisible = true;
+        try
+        {
+            var items = await FoodCatalogService.SearchAsync(query);
+            FoodCollection.ItemsSource = items;
+            UpdateDashboard(items);
+        }
+        finally
+        {
+            LoadingBar.IsVisible = false;
+        }
     }
 
     private void UpdateDashboard(IReadOnlyList<Models.FoodItem> items)
@@ -82,6 +96,28 @@ public partial class MainPage : ContentPage
     {
         searchDebounce?.Cancel();
         await LoadFoodItemsAsync(SearchFoodBar.Text);
+    }
+
+    private async void OnDeleteInvoked(object? sender, EventArgs e)
+    {
+        if (sender is SwipeItem swipeItem && swipeItem.CommandParameter is string id)
+        {
+            var item = await FoodCatalogService.GetByIdAsync(id);
+            var name = item?.Name ?? "this entry";
+
+            bool confirm = await DisplayAlert(
+                "Delete Record",
+                $"Are you sure you want to delete \"{name}\"?",
+                "Delete",
+                "Cancel");
+
+            if (confirm)
+            {
+                await FoodCatalogService.DeleteAsync(id);
+                await LoadFoodItemsAsync(SearchFoodBar.Text);
+                SemanticScreenReader.Announce($"{name} deleted successfully.");
+            }
+        }
     }
 
     private async void OnRefreshing(object? sender, EventArgs e)

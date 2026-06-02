@@ -267,6 +267,26 @@ public static class FoodCatalogService
         return item;
     }
 
+    public static async Task<bool> DeleteAsync(string id)
+    {
+        if (MockApiConfig.IsConfigured)
+        {
+            try
+            {
+                var response = await HttpClient.DeleteAsync(
+                    $"{MockApiConfig.EndpointUrl.TrimEnd('/')}/{Uri.EscapeDataString(id)}");
+                response.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                // Continue with local delete even if the API call fails.
+            }
+        }
+
+        var removed = cachedItems.RemoveAll(item => item.Id == id);
+        return removed > 0;
+    }
+
     private static async Task<IReadOnlyList<FoodItem>> GetAllAsync()
     {
         if (!MockApiConfig.IsConfigured)
